@@ -74,6 +74,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\$(SolutionName)\LT2\sdk\inc;$(SolutionDir)\$(SolutionName)\LT2\sdk\inc\compat</IncludePath>
     <TargetName>OBJECT</TargetName>
+    <LibraryPath>C:\proj\LT2\lithshared\libs\debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -101,6 +102,7 @@
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName).lto</OutputFile>
       <ManifestFile>$(IntDir)$(TargetName).intermediate.manifest</ManifestFile>
+      <AdditionalDependencies>lith.lib;StdLith.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,6 +162,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="LT2\sdk\inc\iservershell.cpp" />
+    <ClCompile Include="LT2\sdk\inc\ltengineobjects.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjectMsgs.h" />

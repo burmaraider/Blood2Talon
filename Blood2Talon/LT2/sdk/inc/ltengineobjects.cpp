@@ -114,59 +114,59 @@ uint32 BaseClass::EngineMessageFn(uint32 messageID, void *pData, float fData)
 			// Get the props.
 			if( fData == PRECREATE_WORLDFILE || fData == PRECREATE_STRINGPROP )
 			{
-				if( pServerLT->GetPropGeneric( "Name", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Name", &genProp ) == LT_OK )
 				{
 					SAFE_STRCPY(pStruct->m_Name, genProp.m_String);
 					pStruct->m_Name[MAX_CS_FILENAME_LEN] = '\0';
 				}
-				if( pServerLT->GetPropGeneric( "Pos", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Pos", &genProp ) == LT_OK )
 				{
 					pStruct->m_Pos = genProp.m_Vec;
 				}
-				if( pServerLT->GetPropGeneric( "Rotation", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Rotation", &genProp ) == LT_OK )
 				{
 					pStruct->m_Rotation = genProp.m_Rotation;
 				}
-				if( pServerLT->GetPropGeneric( "Flags", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Flags", &genProp ) == LT_OK )
 				{
 					pStruct->m_Flags = genProp.m_Long;
 				}
-				if( pServerLT->GetPropGeneric( "Visible", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Visible", &genProp ) == LT_OK )
 				{
 					if( genProp.m_Bool )
 						pStruct->m_Flags |= FLAG_VISIBLE;
 					else
 						pStruct->m_Flags &= ~FLAG_VISIBLE;
 				}
-				if( pServerLT->GetPropGeneric( "Shadow", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Shadow", &genProp ) == LT_OK )
 				{
 					if( genProp.m_Bool )
 						pStruct->m_Flags |= FLAG_SHADOW;
 					else
 						pStruct->m_Flags &= ~FLAG_SHADOW;
 				}
-				if( pServerLT->GetPropGeneric( "RotateableSprite", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"RotateableSprite", &genProp ) == LT_OK )
 				{
 					if( genProp.m_Bool )
 						pStruct->m_Flags |= FLAG_ROTATEABLESPRITE;
 					else
 						pStruct->m_Flags &= ~FLAG_ROTATEABLESPRITE;
 				}
-				if( pServerLT->GetPropGeneric( "Solid", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Solid", &genProp ) == LT_OK )
 				{
 					if( genProp.m_Bool )
 						pStruct->m_Flags |= FLAG_SOLID;
 					else
 						pStruct->m_Flags &= ~FLAG_SOLID;
 				}
-				if( pServerLT->GetPropGeneric( "Gravity", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Gravity", &genProp ) == LT_OK )
 				{
 					if( genProp.m_Bool )
 						pStruct->m_Flags |= FLAG_GRAVITY;
 					else
 						pStruct->m_Flags &= ~FLAG_GRAVITY;
 				}
-				if( pServerLT->GetPropGeneric( "TouchNotify", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"TouchNotify", &genProp ) == LT_OK )
 				{
 					if( genProp.m_Bool )
 						pStruct->m_Flags |= FLAG_TOUCH_NOTIFY;
@@ -174,7 +174,7 @@ uint32 BaseClass::EngineMessageFn(uint32 messageID, void *pData, float fData)
 						pStruct->m_Flags &= ~FLAG_TOUCH_NOTIFY;
 				}
 				
-				if( pServerLT->GetPropGeneric( "Rayhit", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Rayhit", &genProp ) == LT_OK )
 				{
 					if( genProp.m_Bool )
 						pStruct->m_Flags |= FLAG_RAYHIT;
@@ -182,13 +182,13 @@ uint32 BaseClass::EngineMessageFn(uint32 messageID, void *pData, float fData)
 						pStruct->m_Flags &= ~FLAG_RAYHIT;
 				}
 				
-				if( pServerLT->GetPropGeneric( "Filename", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Filename", &genProp ) == LT_OK )
 				{
 					SAFE_STRCPY(pStruct->m_Filename, genProp.m_String);
 					pStruct->m_Filename[MAX_CS_FILENAME_LEN] = '\0';
 				}
 				
-				if( pServerLT->GetPropGeneric( "Skin", &genProp ) == LT_OK )
+				if( pServerLT->GetPropGeneric((char*)"Skin", &genProp ) == LT_OK )
 				{
 					iSkin = 0;
 					conParse.Init(genProp.m_String);
@@ -206,7 +206,7 @@ uint32 BaseClass::EngineMessageFn(uint32 messageID, void *pData, float fData)
 					pStruct->m_SkinName[MAX_CS_FILENAME_LEN] = '\0';
 				}
 
-				if(pServerLT->GetPropGeneric("Chromakey", &genProp) == LT_OK)
+				if(pServerLT->GetPropGeneric((char*)"Chromakey", &genProp) == LT_OK)
 				{
 					if(genProp.m_Bool)
 						pStruct->m_Flags2 |= FLAG2_CHROMAKEY;
@@ -224,7 +224,7 @@ uint32 BaseClass::EngineMessageFn(uint32 messageID, void *pData, float fData)
 					}
 				}
 
-				if(pServerLT->GetPropGeneric("TrueBaseObj", &genProp) == LT_OK)
+				if(pServerLT->GetPropGeneric((char*)"TrueBaseObj", &genProp) == LT_OK)
 				{
 					m_bTrueBaseClass = genProp.m_Bool;
 				}
@@ -316,9 +316,9 @@ uint32 Container::EngineMessageFn(uint32 messageID, void *pData, float fData)
 		if( fData == PRECREATE_WORLDFILE )
 		{
 			code = 0;
-			g_pLTServer->GetPropLongInt("ContainerCode", &code);
+			g_pLTServer->GetPropLongInt((char*)"ContainerCode", &code);
 			pStruct->m_ContainerCode = (uint16)code;
-			g_pLTServer->GetPropString("Name", pStruct->m_Filename, MAX_CS_FILENAME_LEN);
+			g_pLTServer->GetPropString((char*)"Name", pStruct->m_Filename, MAX_CS_FILENAME_LEN);
 		}
 	}
 
@@ -364,34 +364,34 @@ uint32 Sound::EngineMessageFn(uint32 messageID, void *pData, float fData)
 		}
 		else
 		{
-			if( g_pLTServer->GetPropGeneric( "Filename", &genProp ) == LT_OK )
+			if( g_pLTServer->GetPropGeneric( (char*)"Filename", &genProp ) == LT_OK )
 			{
 				SAFE_STRCPY(m_Filename, genProp.m_String);
 			}
 			else
 				m_Filename[0] = '\0';
 
-			if( g_pLTServer->GetPropGeneric("OuterRadius", &genProp ) == LT_OK )
+			if( g_pLTServer->GetPropGeneric((char*)"OuterRadius", &genProp ) == LT_OK )
 				m_fOuterRadius = genProp.m_Float;
 			else
 				m_fOuterRadius = 100.0f;
 
-			if( g_pLTServer->GetPropGeneric("InnerRadius", &genProp ) == LT_OK )
+			if( g_pLTServer->GetPropGeneric((char*)"InnerRadius", &genProp ) == LT_OK )
 				m_fInnerRadius = genProp.m_Float;
 			else
 				m_fInnerRadius = 10.0f;
 			
-			if( g_pLTServer->GetPropGeneric("Volume", &genProp) == LT_OK )
+			if( g_pLTServer->GetPropGeneric((char*)"Volume", &genProp) == LT_OK )
 				m_nVolume = (uint8)genProp.m_Long;
 			else
 				m_nVolume = 100;
 			
-			if( g_pLTServer->GetPropGeneric("Priority", &genProp) == LT_OK )
+			if( g_pLTServer->GetPropGeneric((char*)"Priority", &genProp) == LT_OK )
 				m_nPriority = (unsigned char)genProp.m_Long;
 			else
 				m_nPriority = 0;
 			
-			if( g_pLTServer->GetPropGeneric("Ambient", &genProp) == LT_OK )
+			if( g_pLTServer->GetPropGeneric((char*)"Ambient", &genProp) == LT_OK )
 				m_bAmbient = genProp.m_Bool;
 			else
 				m_bAmbient = LTTRUE;
@@ -528,9 +528,9 @@ uint32 StaticSunLight::EngineMessageFn(uint32 messageID, void *pData, float fDat
 
 			if( fData == PRECREATE_WORLDFILE )
 			{
-				g_pLTServer->GetPropVector("InnerColor", &m_InnerColor);
-				g_pLTServer->GetPropVector("InnerColor", &m_OuterColor);
-				g_pLTServer->GetPropReal("BrightScale", &m_BrightScale);
+				g_pLTServer->GetPropVector((char*)"InnerColor", &m_InnerColor);
+				g_pLTServer->GetPropVector((char*)"InnerColor", &m_OuterColor);
+				g_pLTServer->GetPropReal((char*)"BrightScale", &m_BrightScale);
 			}
 			else
 			{
@@ -618,12 +618,12 @@ uint32 DemoSkyWorldModel::EngineMessageFn(uint32 messageID, void *pData, float f
 
 			if( fData == PRECREATE_WORLDFILE )
 			{
-				g_pLTServer->GetPropVector("SkyDims", &m_SkyDims);
-				g_pLTServer->GetPropString("Name", pStruct->m_Filename, MAX_CS_FILENAME_LEN);
-				g_pLTServer->GetPropReal("InnerPercentX", &m_InnerPercentX);
-				g_pLTServer->GetPropReal("InnerPercentY", &m_InnerPercentY);
-				g_pLTServer->GetPropReal("InnerPercentZ", &m_InnerPercentZ);
-				g_pLTServer->GetPropLongInt("Index", &m_Index);
+				g_pLTServer->GetPropVector((char*)"SkyDims", &m_SkyDims);
+				g_pLTServer->GetPropString((char*)"Name", pStruct->m_Filename, MAX_CS_FILENAME_LEN);
+				g_pLTServer->GetPropReal((char*)"InnerPercentX", &m_InnerPercentX);
+				g_pLTServer->GetPropReal((char*)"InnerPercentY", &m_InnerPercentY);
+				g_pLTServer->GetPropReal((char*)"InnerPercentZ", &m_InnerPercentZ);
+				g_pLTServer->GetPropLongInt((char*)"Index", &m_Index);
 			}
 			else
 			{
@@ -708,13 +708,13 @@ uint32 SkyPointer::EngineMessageFn(
 
 			if( fData == PRECREATE_WORLDFILE )
 			{
-				g_pLTServer->GetPropVector("SkyDims", &m_SkyDims);
-				g_pLTServer->GetPropString("Name", pStruct->m_Filename, MAX_CS_FILENAME_LEN);
-				g_pLTServer->GetPropString("SkyObjectName", m_ObjectName, sizeof(m_ObjectName)-1);
-				g_pLTServer->GetPropReal("InnerPercentX", &m_InnerPercentX);
-				g_pLTServer->GetPropReal("InnerPercentY", &m_InnerPercentY);
-				g_pLTServer->GetPropReal("InnerPercentZ", &m_InnerPercentZ);
-				g_pLTServer->GetPropLongInt("Index", &m_Index);
+				g_pLTServer->GetPropVector((char*)"SkyDims", &m_SkyDims);
+				g_pLTServer->GetPropString((char*)"Name", pStruct->m_Filename, MAX_CS_FILENAME_LEN);
+				g_pLTServer->GetPropString((char*)"SkyObjectName", m_ObjectName, sizeof(m_ObjectName)-1);
+				g_pLTServer->GetPropReal((char*)"InnerPercentX", &m_InnerPercentX);
+				g_pLTServer->GetPropReal((char*)"InnerPercentY", &m_InnerPercentY);
+				g_pLTServer->GetPropReal((char*)"InnerPercentZ", &m_InnerPercentZ);
+				g_pLTServer->GetPropLongInt((char*)"Index", &m_Index);
 			}
 			else
 			{
@@ -826,19 +826,19 @@ uint32 GenericObject::EngineMessageFn(
 		{
 			pStruct = (ObjectCreateStruct*)pData;
 
-			if(pServerLT->GetPropGeneric("ObjectType", &genProp) == LT_OK)
+			if(pServerLT->GetPropGeneric((char*)"ObjectType", &genProp) == LT_OK)
 				pStruct->m_ObjectType = (uint16)genProp.m_Long;
 
-			if(pServerLT->GetPropGeneric("LightRadius", &genProp) == LT_OK)
+			if(pServerLT->GetPropGeneric((char*)"LightRadius", &genProp) == LT_OK)
 				m_LightRadius = genProp.m_Float;
 
-			if(pServerLT->GetPropGeneric("R", &genProp) == LT_OK)
+			if(pServerLT->GetPropGeneric((char*)"R", &genProp) == LT_OK)
 				m_ColorR = genProp.m_Float / 255.0f;
-			if(pServerLT->GetPropGeneric("G", &genProp) == LT_OK)
+			if(pServerLT->GetPropGeneric((char*)"G", &genProp) == LT_OK)
 				m_ColorG = genProp.m_Float / 255.0f;
-			if(pServerLT->GetPropGeneric("B", &genProp) == LT_OK)
+			if(pServerLT->GetPropGeneric((char*)"B", &genProp) == LT_OK)
 				m_ColorB = genProp.m_Float / 255.0f;
-			if(pServerLT->GetPropGeneric("A", &genProp) == LT_OK)
+			if(pServerLT->GetPropGeneric((char*)"A", &genProp) == LT_OK)
 				m_ColorA = genProp.m_Float / 255.0f;
 		}
 		break;
