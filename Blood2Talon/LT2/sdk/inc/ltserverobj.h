@@ -174,7 +174,7 @@
 	// Forward declaration of class DEdit internally augments PropDef data with
 	class DEditInternal;
 
-	struct PropDef
+	typedef struct PropDef
 	{
 
 				PropDef(char *pName, short type, LTVector valVec,
@@ -211,7 +211,7 @@
 		// Don't touch!
 		void	*m_pInternal;
 
-	};
+	}PropDef;
 
 
 	class CProjectClass;
@@ -483,67 +483,67 @@
 
 	// Full property definitions.
 	#define ADD_PROP_FLAG(name, type, valFloat, valString, flags) \
-		PropDef(#name, type, NOCOLOR, valFloat, valString, flags),
+		PropDef((char*)#name, type, NOCOLOR, valFloat, (char*)valString, flags),
 
 	#define ADD_REALPROP_FLAG(name, val, flags) \
-		PropDef(#name, PT_REAL, NOCOLOR, val, "", flags),
+		PropDef((char*)#name, PT_REAL, NOCOLOR, val, (char*)"", flags),
 
 	#define ADD_STRINGPROP_FLAG(name, val, flags) \
-		PropDef(#name, PT_STRING, NOCOLOR, 0.0f, val, flags),
+		PropDef((char*)#name, PT_STRING, NOCOLOR, 0.0f, (char*)val, flags),
 
 	#define ADD_VECTORPROP_FLAG(name, flags) \
-		PropDef(#name, PT_VECTOR, NOCOLOR, 0.0f, (char*)0, flags),
+		PropDef((char*)#name, PT_VECTOR, NOCOLOR, 0.0f, (char*)0, flags),
 
 	#define ADD_VECTORPROP_VAL_FLAG(name, defX, defY, defZ, flags) \
-		PropDef(#name, PT_VECTOR, LTVector(defX, defY, defZ), 0.0f, (char*)0, flags),
+		PropDef((char*)#name, PT_VECTOR, LTVector(defX, defY, defZ), 0.0f, (char*)0, flags),
 
 	#define ADD_LONGINTPROP_FLAG(name, val, flags) \
-		PropDef(#name, PT_LONGINT, NOCOLOR, (float)val, (char*)0, flags),
+		PropDef((char*)#name, PT_LONGINT, NOCOLOR, (float)val, (char*)0, flags),
 
 	#define ADD_ROTATIONPROP_FLAG(name, flags) \
-		PropDef(#name, PT_ROTATION, NOCOLOR, 0.0f, (char*)0, flags),
+		PropDef((char*)#name, PT_ROTATION, NOCOLOR, 0.0f, (char*)0, flags),
 
 	#define ADD_BOOLPROP_FLAG(name, val, flags) \
-		PropDef(#name, PT_BOOL, NOCOLOR, (float)val, (char*)0, flags),
+		PropDef((char*)#name, PT_BOOL, NOCOLOR, (float)val, (char*)0, flags),
 
 	#define ADD_COLORPROP_FLAG(name, valR, valG, valB, flags) \
-		PropDef(#name, PT_COLOR, LTVector(valR, valG, valB), 0.0f, (char*)0, flags),
+		PropDef((char*)#name, PT_COLOR, LTVector(valR, valG, valB), 0.0f, (char*)0, flags),
 
 	#define ADD_OBJECTPROP_FLAG(name, val, flags) \
-		PropDef(#name, PT_STRING, NOCOLOR, 0.0f, val, flags | PF_OBJECTLINK),
+		PropDef((char*)#name, PT_STRING, NOCOLOR, 0.0f, (char*)val, flags | PF_OBJECTLINK),
 
 
 
 	// Full property definitions, with tool tip.
 	#define ADD_PROP_FLAG_HELP(name, type, valFloat, valString, flags, help) \
-		PropDef(#name, type, NOCOLOR, valFloat, valString, flags, help),
+		PropDef((char*)#name, type, NOCOLOR, valFloat, (char*)valString, flags, help),
 
 	#define ADD_REALPROP_FLAG_HELP(name, val, flags, help) \
-		PropDef(#name, PT_REAL, NOCOLOR, val, "", flags, help),
+		PropDef((char*)#name, PT_REAL, NOCOLOR, val, (char*)"", flags, help),
 
 	#define ADD_STRINGPROP_FLAG_HELP(name, val, flags, help) \
-		PropDef(#name, PT_STRING, NOCOLOR, 0.0f, val, flags, help),
+		PropDef((char*)#name, PT_STRING, NOCOLOR, 0.0f, (char*)val, flags, help),
 
 	#define ADD_VECTORPROP_FLAG_HELP(name, flags, help) \
-		PropDef(#name, PT_VECTOR, NOCOLOR, 0.0f, (char*)0, flags, help),
+		PropDef((char*)#name, PT_VECTOR, NOCOLOR, 0.0f, (char*)0, flags, help),
 
 	#define ADD_VECTORPROP_VAL_FLAG_HELP(name, defX, defY, defZ, flags, help) \
-		PropDef(#name, PT_VECTOR, LTVector(defX, defY, defZ), 0.0f, (char*)0, flags, help),
+		PropDef((char*)#name, PT_VECTOR, LTVector(defX, defY, defZ), 0.0f, (char*)0, flags, help),
 
 	#define ADD_LONGINTPROP_FLAG_HELP(name, val, flags, help) \
-		PropDef(#name, PT_LONGINT, NOCOLOR, (float)val, (char*)0, flags, help),
+		PropDef((char*)#name, PT_LONGINT, NOCOLOR, (float)val, (char*)0, flags, help),
 
 	#define ADD_ROTATIONPROP_FLAG_HELP(name, flags, help) \
-		PropDef(#name, PT_ROTATION, NOCOLOR, 0.0f, (char*)0, flags, help),
+		PropDef((char*)#name, PT_ROTATION, NOCOLOR, 0.0f, (char*)0, flags, help),
 
 	#define ADD_BOOLPROP_FLAG_HELP(name, val, flags, help) \
-		PropDef(#name, PT_BOOL, NOCOLOR, (float)val, (char*)0, flags, help),
+		PropDef((char*)#name, PT_BOOL, NOCOLOR, (float)val, (char*)0, flags, help),
 
 	#define ADD_COLORPROP_FLAG_HELP(name, valR, valG, valB, flags, help) \
-		PropDef(#name, PT_COLOR, LTVector(valR, valG, valB), 0.0f, (char*)0, flags, help),
+		PropDef((char*)#name, PT_COLOR, LTVector(valR, valG, valB), 0.0f, (char*)0, flags, help),
 
 	#define ADD_OBJECTPROP_FLAG_HELP(name, val, flags, help) \
-		PropDef(#name, PT_STRING, NOCOLOR, 0.0f, val, flags | PF_OBJECTLINK, help),
+		PropDef((char*)#name, PT_STRING, NOCOLOR, 0.0f, (char*)val, flags | PF_OBJECTLINK, help),
 
 
 	// Add properties without flags (only here for backward compatibility).
