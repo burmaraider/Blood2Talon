@@ -75,11 +75,13 @@
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\$(SolutionName)\LT2\sdk\inc;$(SolutionDir)\$(SolutionName)\LT2\sdk\inc\compat</IncludePath>
     <TargetName>OBJECT</TargetName>
     <LibraryPath>C:\proj\LT2\lithshared\libs\debug;$(LibraryPath)</LibraryPath>
+    <TargetExt>.lto</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\$(SolutionName)\LT2\sdk\inc;$(SolutionDir)\$(SolutionName)\LT2\sdk\inc\compat</IncludePath>
     <TargetName>OBJECT</TargetName>
+    <TargetExt>.lto</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -163,12 +165,12 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="LT2\sdk\inc\iservershell.cpp" />
-    <ClCompile Include="LT2\sdk\inc\ltengineobjects.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjectMsgs.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
