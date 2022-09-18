@@ -1,8 +1,5 @@
 #include "iservershell.h"
 
-
-
-
 IServerShell* CreateServerShell(ILTServer* pServer)
 {
 	return nullptr;

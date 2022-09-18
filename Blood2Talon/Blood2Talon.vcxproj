@@ -106,6 +106,9 @@
       <ManifestFile>$(IntDir)$(TargetName).intermediate.manifest</ManifestFile>
       <AdditionalDependencies>lith.lib;StdLith.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)$(Configuration)\object.lto "C:\Program Files (x86)\Aliens vs. Predator 2\AVP2"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -127,6 +130,9 @@
       <OutputFile>$(OutDir)$(TargetName).lto</OutputFile>
       <ManifestFile>$(IntDir)$(TargetName).intermediate.manifest</ManifestFile>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)$(Configuration)\object.lto "C:\Program Files (x86)\Aliens vs. Predator 2\AVP2"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -163,11 +169,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AmmoPickups.cpp" />
+    <ClCompile Include="B2BaseClass.cpp" />
+    <ClCompile Include="BaseClass.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="LT2\sdk\inc\iservershell.cpp" />
+    <ClCompile Include="PickupObject.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AmmoPickups.h" />
+    <ClInclude Include="B2BaseClass.h" />
+    <ClInclude Include="ClientRes.h" />
     <ClInclude Include="ObjectMsgs.h" />
+    <ClInclude Include="PickupObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
