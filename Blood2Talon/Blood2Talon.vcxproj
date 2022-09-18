@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;CRT_SECURE_NO_WARNINGS;NDEBUG;BLOOD2TALON_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -169,20 +169,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AmmoPickups.cpp" />
     <ClCompile Include="B2BaseClass.cpp" />
     <ClCompile Include="BaseClass.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="LT2\sdk\inc\iservershell.cpp" />
-    <ClCompile Include="PickupObject.cpp" />
-    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AmmoPickups.h" />
     <ClInclude Include="B2BaseClass.h" />
     <ClInclude Include="ClientRes.h" />
     <ClInclude Include="ObjectMsgs.h" />
-    <ClInclude Include="PickupObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

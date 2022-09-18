@@ -4,10 +4,8 @@
 #include <vector>
 
 #include "ltserverobj.h"
-
 #include "B2BaseClass.h"
-#include "PickupObject.h"
-#include "AmmoPickups.h"
+
 
 //dllmain
 BOOL APIENTRY DllMain( HANDLE hModule, 
@@ -857,6 +855,11 @@ END_CLASS_DEFAULT(ZealotAI, AI_Mgr, NULL, NULL)
 
 #pragma region PICKUPS
 //pickups
+typedef struct PickupObject_t
+{
+	BaseClass m_BaseClass;
+} PickupObject;
+
 BEGIN_CLASS(PickupObject)
 ADD_STRINGPROP(PickupTriggerTarget, "")
 ADD_STRINGPROP(PickupTriggerMessage, "")
@@ -1055,30 +1058,66 @@ END_CLASS_DEFAULT(RevenantPU, EnhancementBase, NULL, NULL)
 #pragma endregion
 
 #pragma region AMMO
+	typedef struct AmmoPickup_t
+	{
+		PickupObject m_PickupObject;
+	} AmmoPickup;
 	BEGIN_CLASS(AmmoPickup)
 	END_CLASS_DEFAULT(AmmoPickup, PickupObject, NULL, NULL)
 
+	typedef struct BulletAmmoPU_t
+	{
+		AmmoPickup m_AmmoPickup;
+	} BulletAmmoPU;
 	BEGIN_CLASS(BulletAmmoPU)
 	END_CLASS_DEFAULT(BulletAmmoPU, AmmoPickup, NULL, NULL)
 
+	typedef struct ShellAmmoPU_t
+	{
+		AmmoPickup m_AmmoPickup;
+	} ShellAmmoPU;
 	BEGIN_CLASS(ShellAmmoPU)
 	END_CLASS_DEFAULT(ShellAmmoPU, AmmoPickup, NULL, NULL)
 
+	typedef struct BMGAmmoPU_t
+	{
+		AmmoPickup m_AmmoPickup;
+	} BMGAmmoPU;
 	BEGIN_CLASS(BMGAmmoPU)
 	END_CLASS_DEFAULT(BMGAmmoPU, AmmoPickup, NULL, NULL)
 
+	typedef struct FlareAmmoPU_t
+	{
+		AmmoPickup m_AmmoPickup;
+	} FlareAmmoPU;
 	BEGIN_CLASS(FlareAmmoPU)
 	END_CLASS_DEFAULT(FlareAmmoPU, AmmoPickup, NULL, NULL)
 
+		typedef struct DieBugDieAmmoPU_t
+	{
+		AmmoPickup m_AmmoPickup;
+	} DieBugDieAmmoPU;
 	BEGIN_CLASS(DieBugDieAmmoPU)
 	END_CLASS_DEFAULT(DieBugDieAmmoPU, AmmoPickup, NULL, NULL)
 
+	typedef struct HowitzerAmmoPU_t
+	{
+		AmmoPickup m_AmmoPickup;
+	} HowitzerAmmoPU;
 	BEGIN_CLASS(HowitzerAmmoPU)
 	END_CLASS_DEFAULT(HowitzerAmmoPU, AmmoPickup, NULL, NULL)
 
+	typedef struct FuelAmmoPU_t
+	{
+		AmmoPickup m_AmmoPickup;
+	} FuelAmmoPU;
 	BEGIN_CLASS(FuelAmmoPU)
 	END_CLASS_DEFAULT(FuelAmmoPU, AmmoPickup, NULL, NULL)
 
+		typedef struct BatteryAmmoPU_t
+	{
+		AmmoPickup m_AmmoPickup;
+	} BatteryAmmoPU;
 	BEGIN_CLASS(BatteryAmmoPU)
 	END_CLASS_DEFAULT(BatteryAmmoPU, AmmoPickup, NULL, NULL)
 	#pragma endregion

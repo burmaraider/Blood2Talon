@@ -30,27 +30,12 @@
     <ClCompile Include="B2BaseClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PickupObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AmmoPickups.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjectMsgs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PickupObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="B2BaseClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AmmoPickups.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ClientRes.h">
